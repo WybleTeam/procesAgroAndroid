@@ -9,8 +9,24 @@
     tools:context="com.wyble.nuevita.app.MainActivity2">
 
     <TextView
-        android:text="@string/hello_world"
+        android:text="@string/textServicio1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView" />
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true" >
+    <WebView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:id="@+id/servicioweb1"
+
+        android:layout_marginTop="25dp"
+         />
+    </ScrollView>
+
 
 </RelativeLayout>

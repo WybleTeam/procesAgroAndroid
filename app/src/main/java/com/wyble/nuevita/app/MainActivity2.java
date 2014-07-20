@@ -4,7 +4,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 
 public class MainActivity2 extends ActionBarActivity {
 
@@ -12,6 +13,13 @@ public class MainActivity2 extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_activity2);
+
+
+        WebView myWebView = (WebView) this.findViewById(R.id.servicioweb1);
+        // Enable JavaScript
+        WebSettings webSettings = myWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        myWebView.loadUrl("http://www.ica.gov.co/");
     }
 
 
