@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.os.StrictMode;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -15,6 +17,13 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+        httpHandler handler = new httpHandler();
+        String txt = handler.post("http://181.41.200.108/procesWebService/service.php");
+        TextView t = (TextView) findViewById(R.id.convoca);
+        t.setText(txt);
 
         Button boton1 = (Button) findViewById(R.id.button1);
         boton1.setOnClickListener(new View.OnClickListener() {
