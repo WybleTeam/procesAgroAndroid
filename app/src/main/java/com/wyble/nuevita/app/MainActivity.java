@@ -25,6 +25,15 @@ public class MainActivity extends ActionBarActivity {
         TextView t = (TextView) findViewById(R.id.convoca);
         t.setText(txt);
 
+        Handler_sqlite helper = new Handler_sqlite(this);
+        TextView text = (TextView) findViewById(R.id.tramitesppal);
+        helper.abrir();
+
+        helper.insertarReg("usuarioX","passwordprueba");
+
+        text.setText(helper.leer());
+        helper.cerrar();
+
         Button boton1 = (Button) findViewById(R.id.button1);
         boton1.setOnClickListener(new View.OnClickListener() {
             @Override
