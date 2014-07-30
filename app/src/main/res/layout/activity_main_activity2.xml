@@ -12,12 +12,12 @@
         android:text="@string/textServicio1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView" />
+        android:id="@+id/consultando" />
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:id="@+id/scrollView"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/consultando"
         android:layout_centerHorizontal="true" >
     <WebView
         android:layout_width="wrap_content"

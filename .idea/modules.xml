@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Nuevita.iml" filepath="$PROJECT_DIR$/Nuevita.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/procesAgroAndroid.iml" filepath="$PROJECT_DIR$/procesAgroAndroid.iml" />
     </modules>
   </component>
 </project>

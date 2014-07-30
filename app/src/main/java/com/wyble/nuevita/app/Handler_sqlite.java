@@ -12,45 +12,51 @@ public class Handler_sqlite  extends SQLiteOpenHelper{
 
       public Handler_sqlite(Context ctx)
       {
-          super(ctx, "MiBase", null, 1);
+          super(ctx, "procesAgro", null, 1);
       }
 
     @Override
     public  void onCreate(SQLiteDatabase db)
     {
-        String query = "CREATE TABLE usuarios ("+_ID+" INTEGER PRIMARY KEY AUTOINCREMENT," + "user TEXT, password TEXT);";
+        String query = "CREATE TABLE Convocatorias ("+_ID+" INTEGER PRIMARY KEY AUTOINCREMENT," + "idTabla TEXT, usuario_id TEXT, descripcion TEXT, urlConvocatoria TEXT, descripcionLarga TEXT);";
         db.execSQL(query);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int version_ant, int version_nue)
     {
-        db.execSQL("DROP TABLE IF EXIST usuarios");
+        db.execSQL("DROP TABLE IF EXIST Convocatorias");
         onCreate(db);
     }
 
-    public void insertarReg(String usr, String pass)
+    public void insertarReg(String idTabla, String usuario, String descripcion, String urlConvocatoria, String descripcionLarga)
     {
         ContentValues valores = new ContentValues();
-        valores.put("user", usr);
-        valores.put("password", pass);
-        this.getWritableDatabase().insert("usuarios",null, valores);
+        valores.put("idtabla", idTabla);
+        valores.put("usuario_id", usuario);
+        valores.put("descripcion", descripcion);
+        valores.put("urlConvocatoria", urlConvocatoria);
+        valores.put("descripcionLarga", descripcionLarga);
+        this.getWritableDatabase().insert("Convocatorias",null, valores);
     }
 
    public String leer()
     {
         String result = "";
-        String columnas[] = {_ID,"user","password"};
-        Cursor c = this.getReadableDatabase().query("usuarios", columnas, null, null, null, null, null);
+        String columnas[] = {_ID,"idTabla","usuario_id","descripcion","urlConvocatoria","descripcionLarga"};
+        Cursor c = this.getReadableDatabase().query("Convocatorias", columnas, null, null, null, null, null);
 
-        int id, iu, ip;
+        int id, idt, iu, ip, iurl, idl;
         id = c.getColumnIndex(_ID);
-        iu = c.getColumnIndex("user");
-        ip = c.getColumnIndex("password");
+        iu = c.getColumnIndex("usuario_id");
+        idt = c.getColumnIndex("idTabla");
+        ip = c.getColumnIndex("descripcion");
+        iurl = c.getColumnIndex("urlConvocatoria");
+        idl = c.getColumnIndex("descripcionLarga");
 
         c.moveToLast();
 
-        result = c.getString(id)+" "+c.getString(iu)+" "+c.getString(ip) + "\n";
+        result = c.getString(idt)+" "+c.getString(iu)+" "+c.getString(ip)+" "+c.getString(iurl) +" "+c.getString(idl) + "\n";
 
         return result;
     }

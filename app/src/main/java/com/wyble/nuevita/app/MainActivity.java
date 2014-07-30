@@ -10,6 +10,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.os.StrictMode;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -25,14 +29,44 @@ public class MainActivity extends ActionBarActivity {
         TextView t = (TextView) findViewById(R.id.convoca);
         t.setText(txt);
 
+
+        TextView jairo = (TextView) findViewById(R.id.reprueba);
+
+
         Handler_sqlite helper = new Handler_sqlite(this);
         TextView text = (TextView) findViewById(R.id.tramitesppal);
         helper.abrir();
 
-        helper.insertarReg("usuarioX","passwordprueba");
 
-        text.setText(helper.leer());
+
+
+
+
+
+        try {
+            JSONArray jsonArray = new JSONArray(txt);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                String idTabla = jsonObject.getString("id");
+                String usuario = jsonObject.getString("usuario_id");
+                String descripcion = jsonObject.getString("descripcion");
+                String url = jsonObject.getString("urlConvocatoria");
+                String descripcionLarga = jsonObject.getString("descripcionLarga");
+                System.out.println(url+"*******************************************");
+                helper.insertarReg(idTabla,usuario,descripcion,url,descripcionLarga);
+                //jairo.setText(var2);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        //text.setText(helper.leer());
         helper.cerrar();
+
+
+
+
 
         Button boton1 = (Button) findViewById(R.id.button1);
         boton1.setOnClickListener(new View.OnClickListener() {

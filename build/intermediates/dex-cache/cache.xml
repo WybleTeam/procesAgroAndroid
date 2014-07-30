@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/home/flia/ProyectosAndroid/procesAgroAndroid/app/build/intermediates/pre-dexed/debug/classes-3f06e2dc9165392a9c105415870ee9189151e923.jar"
+        jar="/home/flia/ProyectosAndroid/procesAgroAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/19.0.1/classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="f71a6822470c9eb659d4f4a6cb57b780b35f058b"/>
+    <item
+        dex="/home/flia/ProyectosAndroid/procesAgroAndroid/app/build/intermediates/pre-dexed/debug/classes-c53e554f978454ecb3660ba679765594828bb44e.jar"
+        jar="/home/flia/ProyectosAndroid/procesAgroAndroid/app/build/intermediates/exploded-aar/com.android.support/gridlayout-v7/19.0.1/classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="b1701c49371231e0423b7588539f24bdab485019"/>
+    <item
+        dex="/home/flia/ProyectosAndroid/procesAgroAndroid/app/build/intermediates/pre-dexed/debug/support-v4-19.0.1-18652f466573a46f5a1be13e35c6c5a43f50bdf6.jar"
+        jar="/usr/share/android-studio/data/sdk/extras/android/m2repository/com/android/support/support-v4/19.0.1/support-v4-19.0.1.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="587da9a481ffd341d2fa091704489b89845ddacd"/>
+
+</pre-dex-items>
