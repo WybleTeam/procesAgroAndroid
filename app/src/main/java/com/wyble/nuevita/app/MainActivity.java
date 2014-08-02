@@ -54,7 +54,13 @@ public class MainActivity extends ActionBarActivity {
                 String url = jsonObject.getString("urlConvocatoria");
                 String descripcionLarga = jsonObject.getString("descripcionLarga");
                 System.out.println(url+"*******************************************");
-                helper.insertarReg(idTabla,usuario,descripcion,url,descripcionLarga);
+
+
+                //if (helper.findReg(idTabla, null) == false){
+                //    System.out.println("Ya estaaaaa*******************************");
+                //};
+
+                //helper.insertarReg(idTabla,usuario,descripcion,url,descripcionLarga);
                 //jairo.setText(var2);
             }
         } catch (JSONException e) {

@@ -40,7 +40,18 @@ public class Handler_sqlite  extends SQLiteOpenHelper{
         this.getWritableDatabase().insert("Convocatorias",null, valores);
     }
 
-   public String leer()
+    public boolean findReg(String idTabla, SQLiteDatabase db)
+    {
+        boolean validation = true;
+        Cursor result = db.rawQuery("SELECT idTabla FROM Convocatorias WHERE idTabla =" + idTabla, null);
+        if (null != result) {
+            validation = false ;
+        }
+        return validation;
+    }
+
+
+    public String leer()
     {
         String result = "";
         String columnas[] = {_ID,"idTabla","usuario_id","descripcion","urlConvocatoria","descripcionLarga"};
