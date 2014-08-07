@@ -43,7 +43,7 @@ public class MainActivity extends ActionBarActivity {
 
 
 
-        try {
+     /*   try {
             JSONArray jsonArray = new JSONArray(txt);
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
@@ -65,7 +65,7 @@ public class MainActivity extends ActionBarActivity {
             }
         } catch (JSONException e) {
             e.printStackTrace();
-        }
+        }*/
 
         //text.setText(helper.leer());
         helper.cerrar();

@@ -1,8 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.wyble.nuevita.app.MainActivity2" >
-
+    tools:context="com.wyble.nuevita.app.HomeActivity" >
     <item android:id="@+id/action_update"
         android:title="@string/action_volver"
         android:icon="@drawable/abc_ic_go"

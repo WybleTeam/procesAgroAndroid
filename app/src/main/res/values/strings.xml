@@ -6,6 +6,7 @@
     <string name="action_settings">Opciones</string>
     <string name="action_exit">Salir</string>
     <string name="action_about">Acerca de</string>
+    <string name="action_volver">Volver</string>
     <string name="mensaje_defecto">Hola Mathias</string>
     <string name="text01">Servicio 1</string>
     <string name="text02">Servicio 2</string>
@@ -29,5 +30,7 @@
     <string name="title_activity_main_activity7">Oferta 2</string>
     <string name="title_activity_main_activity8">Oferta 3</string>
     <string name="title_activity_main_activity9">Oferta 4</string>
+    <string name="title_activity_home">Bienvenidos</string>
+    <string name="demo">Personaje Aplicación</string>
 
 </resources>
