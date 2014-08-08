@@ -24,14 +24,15 @@
             android:id="@+id/scrollView"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="50dp">
+
+
+
 
         <TableLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal">
-
-
 
             <TableRow
                 android:layout_width="fill_parent"
@@ -42,8 +43,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/text01"
-                    android:drawableTop="@drawable/ic_launcher"
-                    android:id="@+id/button1" />
+                    android:background="@drawable/boton2"
+                    android:id="@+id/button1"
+                    android:textColor="#fffffdfb"
+                    android:layout_gravity="right" />
 
                 <Button
                     android:layout_width="wrap_content"
@@ -52,7 +55,8 @@
                     android:text="@string/text02"
                     android:id="@+id/button2"
                     android:layout_column="4"
-                    android:background="@drawable/abc_ic_search"/>
+                    android:background="@drawable/boton1"
+                    android:textColor="#fffffdfb" />
             </TableRow>
             <TableRow
                 android:layout_width="fill_parent"
@@ -63,7 +67,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/text03"
-                    android:id="@+id/button3" />
+                    android:id="@+id/button3"
+                    android:background="@drawable/boton"
+                    android:textColor="#fffffdfb"/>
 
                 <Button
                     android:layout_width="wrap_content"
@@ -71,7 +77,9 @@
                     android:layout_weight="1"
                     android:text="@string/text04"
                     android:id="@+id/button4"
-                    android:layout_column="4" />
+                    android:layout_column="4"
+                    android:background="@drawable/boton3"
+                    android:textColor="#fffffdfb"/>
             </TableRow>
             <TableRow
                 android:layout_width="fill_parent"
@@ -85,7 +93,8 @@
                     android:text="@string/convocatoria"
                     android:id="@+id/convoca"
                     android:layout_span="5"
-                    android:textColor="#ffff31dd" />
+                    android:textColor="#ffff31dd"
+                    android:textSize="20dp" />
             </TableRow>
             <TableRow
                 android:layout_width="fill_parent"
@@ -96,15 +105,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/tramite"
-                    android:id="@+id/tramitesppal" />
+                    android:id="@+id/tramitesppal"
+                    android:textSize="20dp"
+                    android:layout_span="5"
+                    android:textAlignment="center"
+                    android:layout_gravity="center_horizontal" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/prueba"
-                    android:id="@+id/reprueba"
-                    android:layout_column="5"
-                    android:textColor="#ffff3c18" />
             </TableRow>
             <TableRow
                 android:layout_width="fill_parent"
@@ -116,7 +122,8 @@
                     android:layout_weight="1"
                     android:text="@string/oferta1"
                     android:id="@+id/button5"
-                    android:textColor="#ffff3db7" />
+                    android:background="@drawable/boton4"
+                    android:textColor="#fffffdfb"/>
 
                 <Button
                     android:layout_width="wrap_content"
@@ -124,7 +131,9 @@
                     android:layout_weight="1"
                     android:text="@string/oferta2"
                     android:id="@+id/button6"
-                    android:layout_column="4" />
+                    android:layout_column="4"
+                    android:background="@drawable/boton5"
+                    android:textColor="#fffffdfb"/>
             </TableRow>
             <TableRow
                 android:layout_width="fill_parent"
@@ -135,7 +144,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/oferta3"
-                    android:id="@+id/button7" />
+                    android:id="@+id/button7"
+                    android:background="@drawable/boton4"
+                    android:textColor="#fffffdfb" />
 
                 <Button
                     android:layout_width="wrap_content"
@@ -143,12 +154,30 @@
                     android:layout_weight="1"
                     android:text="@string/oferta4"
                     android:id="@+id/button8"
-                    android:layout_column="4" />
+                    android:layout_column="4"
+                    android:background="@drawable/boton6"
+                    android:textColor="#fffffdfb"/>
             </TableRow>
         </TableLayout>
-
-
     </ScrollView>
 
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button9"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/abc_ic_search"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText3"
+        android:layout_alignBottom="@+id/button9"
+        android:layout_toLeftOf="@+id/button9"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

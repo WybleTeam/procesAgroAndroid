@@ -1,6 +1,9 @@
 package com.wyble.nuevita.app;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.database.Cursor;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.os.StrictMode;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,56 +27,6 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-
-        httpHandler handler = new httpHandler();
-        String txt = handler.post("http://181.41.200.108/procesWebService/service.php");
-        TextView t = (TextView) findViewById(R.id.convoca);
-        t.setText(txt);
-
-
-        TextView jairo = (TextView) findViewById(R.id.reprueba);
-
-
-        Handler_sqlite helper = new Handler_sqlite(this);
-        TextView text = (TextView) findViewById(R.id.tramitesppal);
-        helper.abrir();
-
-
-
-
-
-
-
-     /*   try {
-            JSONArray jsonArray = new JSONArray(txt);
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-
-                String idTabla = jsonObject.getString("id");
-                String usuario = jsonObject.getString("usuario_id");
-                String descripcion = jsonObject.getString("descripcion");
-                String url = jsonObject.getString("urlConvocatoria");
-                String descripcionLarga = jsonObject.getString("descripcionLarga");
-                System.out.println(url+"*******************************************");
-
-
-                //if (helper.findReg(idTabla, null) == false){
-                //    System.out.println("Ya estaaaaa*******************************");
-                //};
-
-                //helper.insertarReg(idTabla,usuario,descripcion,url,descripcionLarga);
-                //jairo.setText(var2);
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }*/
-
-        //text.setText(helper.leer());
-        helper.cerrar();
-
-
-
-
 
         Button boton1 = (Button) findViewById(R.id.button1);
         boton1.setOnClickListener(new View.OnClickListener() {
@@ -146,6 +100,12 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(jairo);
             }
         });
+
+
+        //Realizamos cualquier otra operación necesaria
+        //Creamos una nueva instancia y llamamos al método ejecutar
+        //pasándole el string.
+        new AccesoRemoto().execute();
     }
 
 
@@ -167,6 +127,75 @@ public class MainActivity extends ActionBarActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private class AccesoRemoto extends AsyncTask<Void, Void, String> {
+
+        protected void onPreExecute() {
+
+        }
+
+        protected String doInBackground(Void... arguments) {
+            /**
+             * Simularemos que descargamos un fichero
+             * mediante un sleep
+             */
+
+
+
+            httpHandler handler = new httpHandler();
+            String txt = handler.post("http://181.41.200.108/procesWebService/service.php");
+            //TextView t = (TextView) findViewById(R.id.convoca);
+            //t.setText(txt);
+
+
+            // TextView jairo = (TextView) findViewById(R.id.reprueba);
+
+
+            Handler_sqlite helper = new Handler_sqlite(MainActivity.this);
+            //TextView text = (TextView) findViewById(R.id.tramitesppal);
+            helper.abrir();
+
+            try {
+                JSONArray jsonArray = new JSONArray(txt);
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                    String idTabla = jsonObject.getString("id");
+                    String usuario = jsonObject.getString("usuario_id");
+                    String descripcion = jsonObject.getString("descripcion");
+                    String url = jsonObject.getString("urlConvocatoria");
+                    String descripcionLarga = jsonObject.getString("descripcionLarga");
+                    System.out.println(url+"*******************************************");
+
+
+                    Cursor prueba = helper.findReg(idTabla);
+                    System.out.println(prueba+"....esta es la prueba");
+                    //if (helper.findReg(idTabla, null) == false){
+                    //    System.out.println("Ya estaaaaa*******************************");
+                    //};
+                    //helper.findReg(idTabla,null);
+                    //helper.insertarReg(idTabla,usuario,descripcion,url,descripcionLarga);
+                    //jairo.setText(var2);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            //text.setText(helper.leer());
+            helper.cerrar();
+            return txt.toString();
+        }
+
+        protected void onProgressUpdate (Float... valores) {
+
+        }
+
+        protected void onPostExecute(String mensaje) {
+
+            Toast.makeText(MainActivity.this, mensaje, Toast.LENGTH_SHORT).show();
+
+        }
     }
 
 }

@@ -2,6 +2,8 @@
   <dictionary name="flia">
     <words>
       <w>httppost</w>
+      <w>mensaje</w>
+      <w>valores</w>
     </words>
   </dictionary>
 </component>

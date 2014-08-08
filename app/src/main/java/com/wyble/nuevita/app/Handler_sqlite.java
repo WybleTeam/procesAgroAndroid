@@ -40,14 +40,20 @@ public class Handler_sqlite  extends SQLiteOpenHelper{
         this.getWritableDatabase().insert("Convocatorias",null, valores);
     }
 
-    public boolean findReg(String idTabla, SQLiteDatabase db)
+    public Cursor findReg(String idTabla)
     {
-        boolean validation = true;
+        SQLiteDatabase db = this.getWritableDatabase();
         Cursor result = db.rawQuery("SELECT idTabla FROM Convocatorias WHERE idTabla =" + idTabla, null);
-        if (null != result) {
-            validation = false ;
-        }
-        return validation;
+
+
+        return result;
+    }
+
+    public void getData(String idTabla)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+       // SELECT idTabla FROM Convocatorias WHERE idTabla =" + idTabla, null
     }
 
 
