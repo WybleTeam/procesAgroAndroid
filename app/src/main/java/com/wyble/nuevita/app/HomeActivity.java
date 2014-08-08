@@ -1,14 +1,24 @@
 package com.wyble.nuevita.app;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.media.MediaPlayer;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.wyble.nuevita.app.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 
 public class HomeActivity extends ActionBarActivity {
 
@@ -24,6 +34,7 @@ public class HomeActivity extends ActionBarActivity {
                 startActivity(about);
             }
         });
+        new Audio().execute();
 
     }
 
@@ -45,5 +56,50 @@ public class HomeActivity extends ActionBarActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private class Audio extends AsyncTask<Void, Void, String>
+    {
+
+        protected void onPreExecute() {
+
+    }
+
+    public String doInBackground(Void... arguments)
+    {
+
+            try {
+                MediaPlayer mediaPlayer = new MediaPlayer();
+                mediaPlayer.setDataSource("http://181.41.201.152/conexionapi/audioinicio.mp3");
+                mediaPlayer.prepare();
+                mediaPlayer.start();
+            } catch (IllegalArgumentException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (SecurityException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IllegalStateException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+
+          String mensaje ="Audio cargado...";    //return mensaje.toString();
+        return mensaje;
+    }
+
+        protected void onProgressUpdate (Float... valores) {
+
+        }
+
+        protected void onPostExecute(String mensaje) {
+
+            Toast.makeText(HomeActivity.this, mensaje, Toast.LENGTH_SHORT).show();
+
+        }
     }
 }

@@ -170,12 +170,15 @@ public class MainActivity extends ActionBarActivity {
 
 
                     Cursor prueba = helper.findReg(idTabla);
-                    System.out.println(prueba+"....esta es la prueba");
-                    //if (helper.findReg(idTabla, null) == false){
-                    //    System.out.println("Ya estaaaaa*******************************");
-                    //};
+                    //System.out.println(prueba+"....esta es la prueba");
+                    if (prueba != null){
+                        System.out.println("Ya estaaaaa*******************************");
+                    }else{
+                        helper.insertarReg(idTabla,usuario,descripcion,url,descripcionLarga);
+                        System.out.println("Insertado*******************************");
+                    };
                     //helper.findReg(idTabla,null);
-                    //helper.insertarReg(idTabla,usuario,descripcion,url,descripcionLarga);
+                    //
                     //jairo.setText(var2);
                 }
             } catch (JSONException e) {
@@ -184,7 +187,9 @@ public class MainActivity extends ActionBarActivity {
 
             //text.setText(helper.leer());
             helper.cerrar();
-            return txt.toString();
+            String mensaje = "Actualizado";
+
+            return mensaje.toString();
         }
 
         protected void onProgressUpdate (Float... valores) {
